@@ -1,0 +1,22 @@
+.menu {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: #142d4c;
+}
+
+.menu-header{
+    padding: 2vh 2vw;
+    color: #a2a8d3;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.menu-item {
+    padding: 1vh 2vw;
+    /* color: #ececec; */
+    color: #a2a8d3;
+    font-size: medium;
+    cursor: pointer;
+
+}
