@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color:  #e7eaf6;
+    padding: 0 2vw;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    padding: 2vh 0;
+    font-size: larger;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(175, 169, 169, 0.2);
+
+}
+
+.content {
+    padding-top: 3vh;
+}

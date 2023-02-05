@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./tool1.component.css']
 })
 export class Tool1Component {
-
+  displayedColumns: string[] = ['date', 'result', 'description'];
+  dataSource = [
+    {
+      date: "04/02/2023",
+      testResult: "PASS",
+      description: "Random Test"
+    }
+  ]
 }
