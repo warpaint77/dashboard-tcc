@@ -8,7 +8,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    background-color:  #e7eaf6;
+    background-color: #e7eaf6;
     padding: 0 2vw;
 }
 
@@ -23,5 +23,16 @@
 }
 
 .content {
+    
+}
+
+#chart {
+    margin: 2vh 0;
+}
+
+.item-title {
     padding-top: 3vh;
+    opacity: 1;
+    font-size: 14px;
+    font-weight: 900;
 }

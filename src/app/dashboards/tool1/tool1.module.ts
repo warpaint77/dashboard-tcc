@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tool1Component } from './tool1.component';
 import { MatTableModule } from '@angular/material/table';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -11,8 +12,8 @@ import {MatTabsModule} from '@angular/material/tabs';
   imports: [
     CommonModule,
     MatTableModule,
-    MatTabsModule
-
+    MatTabsModule,
+    NgApexchartsModule
   ],
   exports: [
     Tool1Component
