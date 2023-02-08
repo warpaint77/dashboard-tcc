@@ -21,11 +21,11 @@
         </table>
 
         <!-- grafico -->
-        <div id="chart">
+        <div class="chart-div">
             <p class="item-title">Weekly Test Results</p>
-            <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            <apx-chart *ngIf="this.chartDataAvailable | async" #chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
                 [dataLabels]="chartOptions.dataLabels" [grid]="chartOptions.grid" [stroke]="chartOptions.stroke"
-                ></apx-chart>
+            ></apx-chart>
         </div>
     </main>
 </div>

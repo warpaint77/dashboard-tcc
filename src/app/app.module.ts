@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MenuModule } from './components/menu/menu.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { Tool1Module } from './dashboards/tool1/tool1.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ExampleToolService } from './services/example-tool.service';
 
 
 @NgModule({
@@ -17,9 +19,10 @@ import { Tool1Module } from './dashboards/tool1/tool1.module';
     AppRoutingModule,
     MenuModule,
     BrowserAnimationsModule,
-    Tool1Module
+    Tool1Module,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ExampleToolService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
