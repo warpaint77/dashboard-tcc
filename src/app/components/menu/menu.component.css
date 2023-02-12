@@ -27,3 +27,31 @@
     align-items: flex-end;
     padding-left: 0.5vw;
 }
+
+@media only screen and (max-width: 1200px) {
+    .menu-header{
+        padding: 2vh 2vw;
+        color: #a2a8d3;
+        font-size: larger;
+        font-weight: bold;
+        display: none;
+    }
+    
+    .menu-item {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        padding: 1vh 0vw;
+        /* color: #ececec; */
+        color: #a2a8d3;
+        font-size: medium;
+        cursor: pointer;
+    }
+
+    .item-title {
+        display: flex;
+        align-items: flex-end;
+        padding-left: 0.5vw;
+        display: none;
+    }
+}

@@ -25,11 +25,11 @@ export type ChartOptions = {
   templateUrl: './tool1.component.html',
   styleUrls: ['./tool1.component.css']
 })
-export class Tool1Component implements OnInit, AfterViewInit{
+export class Tool1Component implements OnInit, AfterViewInit {
   endDate = "2023/02/04"
   startDate = ""
   displayedColumns: string[] = ['date', 'result', 'description'];
-  dataSource : any = []
+  dataSource: any = []
   chartOptions: ChartOptions = {
     series: [],
     chart: {
@@ -51,9 +51,7 @@ export class Tool1Component implements OnInit, AfterViewInit{
         opacity: 0.5
       }
     },
-    xaxis: {
-      // categories: ["2023/01/28", "2023/01/29", "2023/01/30", "2023/01/31", "2023/02/01", "2023/02/02"]
-    }
+    xaxis: {}
   }
 
   chartDataAvailable: Subject<any> = new Subject()
@@ -74,40 +72,36 @@ export class Tool1Component implements OnInit, AfterViewInit{
 
   ngOnInit(): void {
     this.exampleToolService.getTableData(this.startDate, this.endDate)
-    .pipe(
-      map((res) => {
-        this.dataSource = res
-      })
-    )
-    .subscribe()
+      .pipe(
+        map((res) => {
+          this.dataSource = res
+        })
+      )
+      .subscribe()
   }
 
   ngAfterViewInit(): void {
-    //fazer isso aqui pro get graph data ao inves de table data
     this.exampleToolService.getGraphData(this.startDate, this.endDate)
-    .pipe(
-      map((res) => {
-        let data: any = []
-        data = res
-        console.log(data)
-        this.chartOptions.xaxis = {
-          categories: data.map((e: { date: any; }) => e.date).filter((v: any, i: any, a: string | any[]) => a.indexOf(v) === i)
-        }
-        this.chartOptions.series = [
-          {
-            name: "PASS",
-            data: data.filter((e: { testResult: string; }) => e.testResult === 'PASS').map((v: { count: any; }) => v.count)
-          },
-          {
-            name: "FAIL",
-            data: data.filter((e: { testResult: string; }) => e.testResult === 'FAIL').map((v: { count: any; }) => v.count)
+      .pipe(
+        map((res) => {
+          let data: any = []
+          data = res
+          this.chartOptions.xaxis = {
+            categories: data.map((e: { date: any; }) => e.date).filter((v: any, i: any, a: string | any[]) => a.indexOf(v) === i)
           }
-        ]
-        this.chartDataAvailable.next(true)
-      })
-    )
-    .subscribe()
-
+          this.chartOptions.series = [
+            {
+              name: "PASS",
+              data: data.filter((e: { testResult: string; }) => e.testResult === 'PASS').map((v: { count: any; }) => v.count)
+            },
+            {
+              name: "FAIL",
+              data: data.filter((e: { testResult: string; }) => e.testResult === 'FAIL').map((v: { count: any; }) => v.count)
+            }
+          ]
+          this.chartDataAvailable.next(true)
+        })
+      )
+      .subscribe()
   }
-  
 }
